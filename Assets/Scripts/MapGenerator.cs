@@ -13,7 +13,7 @@ public struct TerrainType {
 public class MapGenerator : MonoBehaviour {
 
     public enum DrawMode {
-        NoiseMode,ColorMode
+        NoiseMode,ColorMode,MeshMode
     }
     public DrawMode drawMode;
 
@@ -54,6 +54,8 @@ public class MapGenerator : MonoBehaviour {
             display.DrawTexture(TextureGenerator.TextureFromHeightMap(noiseMap));
         } else if(drawMode == DrawMode.ColorMode) {
             display.DrawTexture(TextureGenerator.TextureFromColorMap(colorMap, mapWidth, mapHeight));
+        } else if(drawMode == DrawMode.MeshMode) {
+            display.DrawMesh(MeshGenerator.GenerateTerrainMesh(noiseMap), TextureGenerator.TextureFromColorMap(colorMap, mapWidth, mapHeight));
         }
     }
 
