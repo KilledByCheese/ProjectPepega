@@ -23,4 +23,7 @@ public class TerrainData : UpdateableData {
             return uniformScale * meshHeightMultiplier * meshHeightCurve.Evaluate(1);
         }
     }
+
+
+    
 }
