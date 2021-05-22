@@ -9,6 +9,8 @@ public class UpdateableData : ScriptableObject {
 
     public bool autoUpdate;
 
+    #if UNITY_EDITOR
+
     protected virtual void OnValidate() {
         if(autoUpdate) {
             UnityEditor.EditorApplication.update += NotifyOfUpdatedValues;
@@ -20,5 +22,7 @@ public class UpdateableData : ScriptableObject {
             UnityEditor.EditorApplication.update -= NotifyOfUpdatedValues;
             OnValuesUpdated();
         }
-    }        
+    } 
+
+    #endif       
 }
