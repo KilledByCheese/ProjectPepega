@@ -77,7 +77,7 @@ public class TerrainChunk {
     }
 
     public void Load() {
-         ThreadedDataRequester.RequestData(() => HeightMapGenerator.GenerateHeightMap(meshSettings.numVerticesPerLine, meshSettings.numVerticesPerLine, heightMapSettings, sampleCenter), OnHeightMapReceived);
+         ThreadedDataRequester.RequestData(() => HeightMapGenerator.GenerateHeightMap(meshSettings.numVerticesPerLine, meshSettings.numVerticesPerLine, heightMapSettings,meshSettings, sampleCenter), OnHeightMapReceived);
     }
 
     private void OnHeightMapReceived(object heightMapObject) {
